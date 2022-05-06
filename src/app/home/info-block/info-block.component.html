@@ -1,0 +1,15 @@
+<app-popup *ngIf="isOpened" (isClosed) = "onIsClosedEmitted($event)" [type]="type"></app-popup>
+<div class="info-form">
+    <div class="info-header">
+        <header class="info-header__text">{{header}}</header>
+        <button 
+            class="info-header__button"
+            (click)="onEditButtonClicked()"
+        >
+            <img class="info-header__img"src="./assets/edit-img.png" alt="Edit button">
+        </button>
+    </div>
+    <div class="info-content">
+        <p>{{content}}</p>
+    </div>
+</div>

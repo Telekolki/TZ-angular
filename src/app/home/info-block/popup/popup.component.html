@@ -1,0 +1,48 @@
+<div class="backdrop" (click)="onCloseButtonClicked()"></div>
+<div class="popup">
+    <ng-container *ngIf="isNameType; else occupation">
+        <form (ngSubmit)="submitName(nameForm)" #nameForm="ngForm">
+            <div class="popup__container">
+                <div class="popup__header">
+                    <button class="popup__close" (click)="onCloseButtonClicked()">
+                        <img src="./assets/close-img.png" alt="Close button">
+                    </button>
+                </div>
+                <div class="popup__content">
+                    <div class="name-content">
+                        <input  class="name-content__first" id="firstName" type="text" placeholder="Имя" name="firstName" ngModel required pattern="[a-zA-Z-]*">
+                        <input  class="name-content__second" id="secondName" type="text" placeholder="Фамилия" name="lastName" ngModel required pattern="[a-zA-Z-]*">
+                    </div>
+                </div>
+            </div>
+            <div class="popup__footer">
+                <button class="popup__save" type="submit" [disabled]="!nameForm.valid" >Сохранить</button>
+                <button class="popup__cancel" type="button" (click)="onCloseButtonClicked()">Отмена</button>
+            </div>
+        </form>
+    </ng-container>
+</div>
+
+<ng-template #occupation>
+    <form (ngSubmit)="submitOccupation(occupationForm)" #occupationForm="ngForm">
+        <div class="popup__container">
+            <div class="popup__header">
+                <button class="popup__close" (click)="onCloseButtonClicked()">
+                    <img src="./assets/close-img.png" alt="Close button">
+                </button>
+            </div>
+            <div class="popup__content">
+                <div class="occupation-content">
+                    <div *ngFor="let item of occupationsArray; let i = index" class="occupation-content__group-item">
+                        <input class="occupation-content__radio" type="radio" [id]="'radio' + i" name="occupation" [value]="item" required (change)="changeOccupation($event)"/>
+                        <label [for]="'radio' + i">{{item}}</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="popup__footer">
+            <button class="popup__save" type="submit" [disabled]="!occupationForm.valid">Сохранить</button>
+            <button class="popup__cancel" type="button" (click)="onCloseButtonClicked()">Отмена</button>
+        </div>
+    </form>
+</ng-template>

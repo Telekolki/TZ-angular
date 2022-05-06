@@ -1,0 +1,10 @@
+.home-content {
+    display: flex;
+    flex-direction: column;
+    padding-left: 61px;
+    padding-top: 45px;
+}
+
+.info-block__occupation {
+    margin-top: 65px;
+}
