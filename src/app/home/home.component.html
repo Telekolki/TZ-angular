@@ -1,6 +1,6 @@
 <div class="home-content">
     <div class="info-block__name">
-        <app-info-block header="Имя Фамилия" [content]="getFullName()" type="name"></app-info-block>
+        <app-info-block header="Имя Фамилия" [content]="[user.firstName, user.lastName]  | fullName" type="name"></app-info-block>
     </div>
     <div class="info-block__occupation">
         <app-info-block header="Род деятельности" [content]="user.occupation" type="occupation"></app-info-block>

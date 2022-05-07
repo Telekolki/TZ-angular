@@ -21,9 +21,4 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.user = this.userDateService.getUserObject();
   }
-
-  getFullName(): string {
-    return this.user.firstName + ' ' +  this.user.lastName;
-  }
-
 }
