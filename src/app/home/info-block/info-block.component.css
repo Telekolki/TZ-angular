@@ -35,6 +35,7 @@
     border-radius: 6px;
     border: white;
     background-image: linear-gradient(to top, #8d53d7, #70a0fc);
+    cursor: pointer;
 }
 
 .info-header__img {
