@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
+import { AfterViewInit, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { UserDataService } from '../../userData.service';
 
 
@@ -7,42 +7,28 @@ import { UserDataService } from '../../userData.service';
   templateUrl: './popup.component.html',
   styleUrls: ['./popup.component.css']
 })
-export class PopupComponent implements OnInit {
+export class PopupComponent implements OnInit, AfterViewInit {
+  @Input() formGroup!: FormGroup;
+  @Output() formSubmitted = new EventEmitter <{}>();
   @Output() isClosed = new EventEmitter <boolean>();
-  @Input() type: string | undefined;
 
-  occupationsArray: string[] = [];
-
-  userOccupation: string = '';
-  
-  isNameType: boolean = false;
-
-  constructor(private userDateService: UserDataService) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.isNameType = this.type==='name';
-    this.userDateService.getOccupationsArray().then( (value) => this.occupationsArray = value as string[]);
+  }
+
+  ngAfterViewInit(): void {}
+
+  onSubmit() {
+    this.formSubmitted.emit(this.formGroup.value);
+    this.isClosed.emit(true);
   }
 
   public onCloseButtonClicked() {
-    this.userOccupation = '';
     this.isClosed.emit(true);
   }
    
-  submitName(form: NgForm) {
-    this.userDateService.updateUserName(form.value.firstName, form.value.lastName);
+  onSaveButtonClicked() {
     this.isClosed.emit(true);
   }
-
-  submitOccupation(form: NgForm) {
-    if (this.userOccupation) {
-      this.userDateService.updateUserOccupation(this.userOccupation);
-      this.isClosed.emit(true);
-    }
-  }
-
-  changeOccupation(e: any) {
-    this.userOccupation = e.target.value;
-  }
-
 }

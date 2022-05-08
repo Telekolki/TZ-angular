@@ -1,4 +1,3 @@
-<app-popup *ngIf="isOpened" (isClosed) = "onIsClosedEmitted($event)" [type]="type"></app-popup>
 <div class="info-form">
     <div class="info-header">
         <header class="info-header__text">{{header}}</header>
@@ -13,3 +12,6 @@
         <p>{{content}}</p>
     </div>
 </div>
+<app-popup *ngIf="isOpened" (formSubmitted)="onSubmit($event)" (isClosed)="onIsClosedEmitted($event)" [formGroup]="formGroup">
+    <ng-content></ng-content>
+</app-popup>

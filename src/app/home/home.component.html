@@ -1,9 +1,59 @@
 <div class="home-content">
     <div class="info-block__name">
-        <app-info-block header="Имя Фамилия" [content]="[user.firstName, user.lastName]  | fullName" type="name"></app-info-block>
+        <app-info-block 
+            header="Имя Фамилия" 
+            [content]="[user.firstName, user.lastName]  | fullName" 
+            type="name" 
+            (formSubmitted)="onSubmit($event)"
+            [formGroup]="nameForm"
+        >
+            <div class="name-content">
+                <input  
+                    class="name-content__first" 
+                    id="firstName" 
+                    type="text" 
+                    placeholder="Имя" 
+                    name="firstName" 
+                    required 
+                    pattern="[а-яА-Я-]*" 
+                    formControlName="firstName"
+                >
+                <input  
+                    class="name-content__second" 
+                    id="secondName" 
+                    type="text" 
+                    placeholder="Фамилия" 
+                    name="lastName" 
+                    required 
+                    pattern="[а-яА-Я-]*" 
+                    formControlName="lastName"
+                >
+            </div>
+        </app-info-block>
     </div>
+
     <div class="info-block__occupation">
-        <app-info-block header="Род деятельности" [content]="user.occupation" type="occupation"></app-info-block>
+        <app-info-block 
+            header="Род деятельности" 
+            [content]="user.occupation" 
+            (formSubmitted)="onSubmit($event)"
+            [formGroup]="occupationForm"
+        >
+            <div class="occupation-content">
+                <div *ngFor="let item of occupationsArray; let i = index" class="occupation-content__group-item">
+                    <input 
+                        class="occupation-content__radio" 
+                        type="radio" 
+                        [id]="'radio' + i" 
+                        name="occupation" 
+                        [value]="item" 
+                        required 
+                        formControlName="occupation"
+                    >
+                    <label [for]="'radio' + i">{{item}}</label>
+                </div>
+            </div>
+        </app-info-block>
     </div>
 </div>
 

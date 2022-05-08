@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-info-block',
@@ -9,17 +10,14 @@ export class InfoBlockComponent implements OnInit {
 
   @Input() header: string | undefined;
   @Input() content: string | undefined;
-  @Input() type: string | undefined;
+  @Output() formSubmitted = new EventEmitter <{}>();
+  @Input() formGroup!: FormGroup;
 
-  isOpened: boolean;
+  isOpened: boolean = false;
 
-  constructor() { 
-    this.isOpened = false;
-  }
+  constructor() { }
 
-  ngOnInit(): void {
-    
-  }
+  ngOnInit(): void {}
 
   onEditButtonClicked() {
     this.isOpened = true;
@@ -27,6 +25,11 @@ export class InfoBlockComponent implements OnInit {
 
   onIsClosedEmitted(isClosed: boolean) {
     this.isOpened = !isClosed;
+  }
+
+  onSubmit(value: any) {
+    console.log(this.formGroup);
+    this.formSubmitted.emit(value);
   }
 
 }
