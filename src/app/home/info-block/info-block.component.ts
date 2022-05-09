@@ -10,8 +10,9 @@ export class InfoBlockComponent implements OnInit {
 
   @Input() header: string | undefined;
   @Input() content: string | undefined;
-  @Output() formSubmitted = new EventEmitter <{}>();
   @Input() formGroup!: FormGroup;
+  @Output() formSubmitted = new EventEmitter <{}>();
+  @Output() editClicked = new EventEmitter <FormGroup>();
 
   isOpened: boolean = false;
 
@@ -20,6 +21,7 @@ export class InfoBlockComponent implements OnInit {
   ngOnInit(): void {}
 
   onEditButtonClicked() {
+    this.editClicked.emit(this.formGroup);
     this.isOpened = true;
   }
 
@@ -31,5 +33,6 @@ export class InfoBlockComponent implements OnInit {
   onSubmit(value: any) {
     this.formSubmitted.emit(value);
   }
+
 
 }

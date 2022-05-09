@@ -33,7 +33,13 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.user = this.userDateService.getUserObject();
-    this.userDateService.getOccupationsArray().then( (value) => this.occupationsArray = value as string[]);
+  }
+
+  onEdit(form: FormGroup) {
+    if (form == this.occupationForm) {
+      this.occupationsArray = [];
+      this.userDateService.getOccupationsArray().then( (value) => this.occupationsArray = value as string[]);
+    }
   }
 
   onSubmit(value: any) {

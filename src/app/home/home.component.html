@@ -30,6 +30,7 @@
         <app-info-block 
             header="Род деятельности" 
             [content]="user.occupation" 
+            (editClicked)="onEdit($event)"
             (formSubmitted)="onSubmit($event)"
             [formGroup]="occupationForm"
         >
