@@ -13,9 +13,6 @@
                     id="firstName" 
                     type="text" 
                     placeholder="Имя" 
-                    name="firstName" 
-                    required 
-                    pattern="[а-яА-Я-]*" 
                     formControlName="firstName"
                 >
                 <input  
@@ -23,9 +20,6 @@
                     id="secondName" 
                     type="text" 
                     placeholder="Фамилия" 
-                    name="lastName" 
-                    required 
-                    pattern="[а-яА-Я-]*" 
                     formControlName="lastName"
                 >
             </div>
@@ -44,10 +38,8 @@
                     <input 
                         class="occupation-content__radio" 
                         type="radio" 
-                        [id]="'radio' + i" 
-                        name="occupation" 
+                        [id]="'radio' + i"  
                         [value]="item" 
-                        required 
                         formControlName="occupation"
                     >
                     <label [for]="'radio' + i">{{item}}</label>

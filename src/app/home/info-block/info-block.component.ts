@@ -25,10 +25,10 @@ export class InfoBlockComponent implements OnInit {
 
   onIsClosedEmitted(isClosed: boolean) {
     this.isOpened = !isClosed;
+    this.formGroup.reset();
   }
 
   onSubmit(value: any) {
-    console.log(this.formGroup);
     this.formSubmitted.emit(value);
   }
 

@@ -7,7 +7,7 @@ import { HomeComponent } from './home/home.component';
 import { InfoBlockComponent } from './home/info-block/info-block.component';
 import { PopupComponent } from './home/info-block/popup/popup.component';
 import { UserDataService } from './home/userData.service';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { FullNamePipe } from './pipes/fullName.pipe';
 
 @NgModule({
@@ -21,7 +21,6 @@ import { FullNamePipe } from './pipes/fullName.pipe';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
     ReactiveFormsModule
   ],
   providers: [UserDataService],

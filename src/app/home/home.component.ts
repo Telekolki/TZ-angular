@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, NgForm } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { UserDataService, UserModel } from './userData.service';
 
 
@@ -21,13 +21,13 @@ export class HomeComponent implements OnInit {
   nameForm: FormGroup;
   occupationForm: FormGroup;
 
-  constructor(private userDateService: UserDataService, fb: FormBuilder) {
-    this.nameForm = fb.group({
-      firstName: [''],
-      lastName: ['']
+  constructor(private userDateService: UserDataService) {
+    this.nameForm = new FormGroup({
+      firstName: new FormControl(null, [Validators.required, this.checkForRusLetters.bind(this)]),
+      lastName: new FormControl(null, [Validators.required, this.checkForRusLetters.bind(this)]),
     })
-    this.occupationForm = fb.group({
-      occupation: ['']
+    this.occupationForm = new FormGroup({
+      occupation: new FormControl(null, Validators.required),
     })
   }
 
@@ -36,15 +36,21 @@ export class HomeComponent implements OnInit {
     this.userDateService.getOccupationsArray().then( (value) => this.occupationsArray = value as string[]);
   }
 
-  submitName(form: NgForm) {
-    this.userDateService.updateUserName(form.value.firstName, form.value.lastName);
+  onSubmit(value: any) {
+    if (this.nameForm.touched && this.nameForm.valid) {
+      this.userDateService.updateUserName(value.firstName, value.lastName);
+      this.nameForm.reset();
+    } else if(this.occupationForm.touched && this.occupationForm.valid) {
+      this.userDateService.updateUserOccupation(value.occupation);
+      this.occupationForm.reset();
+    }
   }
 
-  onSubmit(value: any) {
-    if (value.firstName && value.lastName) {
-      this.userDateService.updateUserName(value.firstName, value.lastName);
-    } else if(value.occupation) {
-      this.userDateService.updateUserOccupation(value.occupation);
+  checkForRusLetters(control: FormControl): {[s: string]: boolean} | null {
+    if (!(/^[а-яА-Я-]*$/.test(control.value))) {
+      return {nameIsInvalid: true}
+    } else {
+      return null;
     }
   }
   
