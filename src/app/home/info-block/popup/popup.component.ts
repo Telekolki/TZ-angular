@@ -5,7 +5,7 @@ import { UserDataService } from '../../userData.service';
 @Component({
   selector: 'app-popup',
   templateUrl: './popup.component.html',
-  styleUrls: ['./popup.component.css']
+  styleUrls: ['./popup.component.scss']
 })
 export class PopupComponent implements OnInit, AfterViewInit {
   @Input() formGroup!: FormGroup;
