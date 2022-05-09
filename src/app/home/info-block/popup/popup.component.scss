@@ -1,3 +1,5 @@
+@import "/src/styles/styles.scss";
+
 .backdrop {
     position: fixed;
     top: 0;
@@ -26,98 +28,99 @@
     background-color: #fff;
     animation-duration: 1s;
     animation-name: appear;
+
+    &__container {
+        padding: 21px;
+    }
+
+    &__header {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+    }
+
+    &__content {
+        min-height: 250px;
+    }
+
+    &__close {
+        background-color: white;
+        border: black;
+        cursor: pointer;
+    }
+
+    &__footer {
+        position: relative;
+        display: flex;
+        align-items: end;
+        justify-content: end;
+        width: inherit;
+        height: inherit;
+        min-height: 96px;
+        min-width: 600px;
+        background-color: lightgrey;
+        border-radius: 0px 0px 10px 10px;;
+    }
+
+    &__save {
+        border: white;
+        color: white;
+        margin-right: 20px;
+        margin-bottom: 21px;
+        width: 134px;
+        height: 44px;
+        border-radius: 6px;
+        background-image: linear-gradient(to top, $aztec-purple, $periwinkle-blue);
+        font-size: 16px;
+        cursor: pointer;
+
+        &:hover {
+            background-image: linear-gradient(to top, $aztec-purple-border, $periwinkle-blue);
+        }
+
+        &:focus {
+            border: $aztec-purple-border;
+        }
+
+        &:active {
+            background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(to top, $aztec-purple, $periwinkle-blue);
+        }
+    }
+
+    &__cancel {
+        border: white;
+        color: white;
+        margin-right: 62px;
+        margin-bottom: 21px;
+        width: 104px;
+        height: 44px;
+        border-radius: 6px;
+        background-image: linear-gradient(to top, $gunsmoke, $silver-sand);
+        font-size: 16px;
+        cursor: pointer;
+
+        &:hover {
+            background-image: linear-gradient(to top, #5c5c5c, #b4b4b4);
+        }
+
+        &:focus {
+            background-image: linear-gradient(to top, $gunsmoke, $silver-sand);
+            border: $aztec-purple-border;
+        }
+
+        &:active {
+            background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), linear-gradient(to top, $gunsmoke, $silver-sand);
+        }
+        
+    }
 }
 
 @keyframes appear {
     from {
         opacity: 0;
     }
-  
+
     to {
         opacity: 1;
     }
-  }
-
-.popup__container {
-    padding: 21px;
-}
-
-.popup__header {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-}
-
-.popup__content {
-    min-height: 250px;
-}
-
-.popup__close {
-    background-color: white;
-    border: black;
-    cursor: pointer;
-}
-
-.popup__footer {
-    position: relative;
-    display: flex;
-    align-items: end;
-    justify-content: end;
-    width: inherit;
-    height: inherit;
-    min-height: 96px;
-    min-width: 600px;
-    background-color: lightgrey;
-    border-radius: 0px 0px 10px 10px;;
-}
-
-.popup__save {
-    border: white;
-    color: white;
-    margin-right: 20px;
-    margin-bottom: 21px;
-    width: 134px;
-    height: 44px;
-    border-radius: 6px;
-    background-image: linear-gradient(to top, #8d53d7, #70a0fc);
-    font-size: 16px;
-    cursor: pointer;
-}
-
-.popup__save:hover {
-    background-image: linear-gradient(to top, #892cff, #538fff);
-}
-
-.popup__save:focus {
-    border: #892cff;
-}
-
-.popup__save:active {
-    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(to top, #8d53d7, #70a0fc);
-}
-
-.popup__cancel {
-    border: white;
-    color: white;
-    margin-right: 62px;
-    margin-bottom: 21px;
-    width: 104px;
-    height: 44px;
-    border-radius: 6px;
-    background-image: linear-gradient(to top, #868686, #c1c1c1);
-    font-size: 16px;
-    cursor: pointer;
-}
-
-.popup__cancel:hover {
-    background-image: linear-gradient(to top, #5c5c5c, #b4b4b4);
-}
-
-.popup__cancel:focus {
-    background-image: linear-gradient(to top, #868686, #c1c1c1);
-    border: #892cff;
-}
-
-.popup__cancel:active {
-    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), linear-gradient(to top, #868686, #c1c1c1);
 }

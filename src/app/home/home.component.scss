@@ -1,3 +1,5 @@
+@import "/src/styles/styles.scss";
+
 .home-content {
     display: flex;
     flex-direction: column;
@@ -17,50 +19,50 @@
     justify-content: space-between;
     padding-top: 4rem;
     min-height: 120px;
-}
 
-.name-content__first {
-    width: 45vw;
-    height: 4vh;
-    min-width: 466px;
-    min-height: 40px;
-    border-radius: 6px;
-    border: solid 1px #aaa;
-    background-color: #fff;
-    padding-left: 12px;
-}
+    &__first {
+        width: 45vw;
+        height: 4vh;
+        min-width: 466px;
+        min-height: 40px;
+        border-radius: 6px;
+        border: solid 1px #aaa;
+        background-color: #fff;
+        padding-left: 12px;
 
-.name-content__first:hover {
-    border: solid 1px #8d53d7;
-}
+        &:hover {
+            border: solid 1px $aztec-purple;
+        }
 
-.name-content__first:focus {
-    color: #8d53d7;
-    border: solid 1px #8d53d7;
-    box-shadow: 0px 0px 3px 0px #8d53d7;
-    outline: none;
-}
+        &:focus {
+            color: $aztec-purple;
+            border: solid 1px $aztec-purple;
+            box-shadow: 0px 0px 3px 0px $aztec-purple;
+            outline: none;
+        }
+    }
 
-.name-content__second {
-    width: 45vw;
-    height: 4vh;
-    min-width: 466px;
-    min-height: 40px;
-    border-radius: 6px;
-    border: solid 1px #aaa;
-    background-color: #fff;
-    padding-left: 12px;
-}
+    &__second {
+        width: 45vw;
+        height: 4vh;
+        min-width: 466px;
+        min-height: 40px;
+        border-radius: 6px;
+        border: solid 1px #aaa;
+        background-color: #fff;
+        padding-left: 12px;
 
-.name-content__second:hover {
-    border: solid 1px #8d53d7;
-}
+        &:hover {
+            border: solid 1px $aztec-purple;
+        }
 
-.name-content__second:focus {
-    outline: none;
-    color: #8d53d7;
-    box-shadow: 0px 0px 3px 0px #8d53d7;
-    border: solid 1px #8d53d7;
+        &:focus {
+            outline: none;
+            color: $aztec-purple;
+            box-shadow: 0px 0px 3px 0px $aztec-purple;
+            border: solid 1px $aztec-purple;
+        }
+    }
 }
 
 .occupation-content {
@@ -71,49 +73,51 @@
     overflow-y: scroll;
     max-height: 200px;
     margin: 30px;
-}
 
-.occupation-content__group-item label{
-    margin-left: 5px;
-    cursor: pointer;
-}
+    &__group-item {
+        & label{
+            margin-left: 5px;
+            cursor: pointer;
+        }
 
-.occupation-content__group-item input{
-    margin-bottom: 5px;
-    -webkit-appearance: none;
-    appearance: none;
-    width: 28px;
-    height: 28px;
-    border: solid 2px #868686;
-    border-radius: 28px;
-    background-color: #fff;
-    vertical-align: middle;
-    box-shadow: inset 1em 1em var(--form-control-color);
-    cursor: pointer;
-}
+        & input{
+            margin-bottom: 5px;
+            -webkit-appearance: none;
+            appearance: none;
+            width: 28px;
+            height: 28px;
+            border: solid 2px $gunsmoke;
+            border-radius: 28px;
+            background-color: #fff;
+            vertical-align: middle;
+            box-shadow: inset 1em 1em var(--form-control-color);
+            cursor: pointer;
 
-.occupation-content__group-item input:hover{
-    background-color: #fff;
-    border: solid 7px #fff;
-    outline: solid 2px #892cff;
-    border-radius: 28px;
-    background: #8d53d7;
-    opacity: 0.3;
-}
+            &:hover{
+                background-color: #fff;
+                border: solid 7px #fff;
+                outline: solid 2px $aztec-purple-border;
+                border-radius: 28px;
+                background: $aztec-purple;
+                opacity: 0.3;
+            }
 
-.occupation-content__group-item input:focus{
-    background-color: #fff;
-    border: solid 7px #fff;
-    outline: solid 2px #892cff;
-    border-radius: 28px;
-    opacity: 1;
-}
+            &:focus{
+                background-color: #fff;
+                border: solid 7px #fff;
+                outline: solid 2px $aztec-purple-border;
+                border-radius: 28px;
+                opacity: 1;
+            }
 
-.occupation-content__group-item input:checked{
-    background-color: #fff;
-    border: solid 7px #fff;
-    outline: solid 2px #892cff;
-    border-radius: 28px;
-    background: #892cff;
-    opacity: 1;
+            &:checked{
+                background-color: #fff;
+                border: solid 7px #fff;
+                outline: solid 2px $aztec-purple-border;
+                border-radius: 28px;
+                background: $aztec-purple-border;
+                opacity: 1;
+            }
+        }
+    }
 }

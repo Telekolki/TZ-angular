@@ -1,3 +1,5 @@
+@import "/src/styles/styles.scss";
+
 .info-form {
     display: flex;
     flex-direction: column;
@@ -7,18 +9,32 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-}
 
-.info-header__text {
-    margin: 0px 10px 0 0;
-    font-family: Arial;
-    font-size: 32px;
-    font-weight: 700;
-    font-stretch: normal;
-    font-style: normal;
-    letter-spacing: normal;
-    text-align: left;
-    color: #000;
+    &__text {
+        margin: 0px 10px 0 0;
+        font-family: Arial;
+        font-size: 32px;
+        font-weight: 700;
+        font-stretch: normal;
+        font-style: normal;
+        letter-spacing: normal;
+        text-align: left;
+        color: #000;
+    }
+
+    &__button {
+        width: 48px;
+        height: 44px;
+        border-radius: 6px;
+        border: white;
+        background-image: linear-gradient(to top, $aztec-purple, $periwinkle-blue);
+        cursor: pointer;
+    }
+
+    &__img {
+        width: 23px;
+        height: 26px;
+    }
 }
 
 .info-content {
@@ -29,16 +45,3 @@
     color: #000;
 }
 
-.info-header__button {
-    width: 48px;
-    height: 44px;
-    border-radius: 6px;
-    border: white;
-    background-image: linear-gradient(to top, #8d53d7, #70a0fc);
-    cursor: pointer;
-}
-
-.info-header__img {
-    width: 23px;
-    height: 26px;
-}
