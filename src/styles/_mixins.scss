@@ -1,0 +1,14 @@
+@mixin radio-theme {
+    border: solid 7px #fff;
+    outline: solid 2px $aztec-purple-border;
+}
+
+@mixin popup-button-theme ($grad-color-1, $grad-color-2) {
+    border: white;
+    color: white;
+    border-radius: 6px;
+    font-size: $font-normal;
+    font-family: $font-family-main;
+    cursor: pointer;
+    background-image: linear-gradient(to top, $grad-color-1, $grad-color-2);
+}

@@ -12,12 +12,9 @@
 
     &__text {
         margin: 0px 10px 0 0;
-        font-family: Arial;
-        font-size: 32px;
+        font-family: $font-family-main;
+        font-size: $font-big;
         font-weight: 700;
-        font-stretch: normal;
-        font-style: normal;
-        letter-spacing: normal;
         text-align: left;
         color: #000;
     }
@@ -38,8 +35,8 @@
 }
 
 .info-content {
-    font-family: Arial;
-    font-size: 32px;
+    font-family: $font-family-main;
+    font-size: $font-big;
     line-height: 1;
     text-align: left;
     color: #000;

@@ -63,16 +63,11 @@
     }
 
     &__save {
-        border: white;
-        color: white;
+        @include popup-button-theme($aztec-purple, $periwinkle-blue);
         margin-right: 20px;
         margin-bottom: 21px;
         width: 134px;
         height: 44px;
-        border-radius: 6px;
-        background-image: linear-gradient(to top, $aztec-purple, $periwinkle-blue);
-        font-size: 16px;
-        cursor: pointer;
 
         &:hover {
             background-image: linear-gradient(to top, $aztec-purple-border, $periwinkle-blue);
@@ -88,16 +83,11 @@
     }
 
     &__cancel {
-        border: white;
-        color: white;
+        @include popup-button-theme($gunsmoke, $silver-sand);
         margin-right: 62px;
         margin-bottom: 21px;
         width: 104px;
         height: 44px;
-        border-radius: 6px;
-        background-image: linear-gradient(to top, $gunsmoke, $silver-sand);
-        font-size: 16px;
-        cursor: pointer;
 
         &:hover {
             background-image: linear-gradient(to top, #5c5c5c, #b4b4b4);

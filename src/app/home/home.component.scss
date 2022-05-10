@@ -20,7 +20,7 @@
     padding-top: 4rem;
     min-height: 120px;
 
-    &__first {
+    &__name {
         width: 45vw;
         height: 4vh;
         min-width: 466px;
@@ -39,36 +39,14 @@
             border: solid 1px $aztec-purple;
             box-shadow: 0px 0px 3px 0px $aztec-purple;
             outline: none;
-        }
-    }
-
-    &__second {
-        width: 45vw;
-        height: 4vh;
-        min-width: 466px;
-        min-height: 40px;
-        border-radius: 6px;
-        border: solid 1px #aaa;
-        background-color: #fff;
-        padding-left: 12px;
-
-        &:hover {
-            border: solid 1px $aztec-purple;
-        }
-
-        &:focus {
-            outline: none;
-            color: $aztec-purple;
-            box-shadow: 0px 0px 3px 0px $aztec-purple;
-            border: solid 1px $aztec-purple;
         }
     }
 }
 
 .occupation-content {
     min-height: 120px;
-    font-family: Arial;
-    font-size: 16px;
+    font-family: $font-family-main;
+    font-size: $font-normal;
     line-height: 2;
     overflow-y: scroll;
     max-height: 200px;
@@ -94,27 +72,18 @@
             cursor: pointer;
 
             &:hover{
-                background-color: #fff;
-                border: solid 7px #fff;
-                outline: solid 2px $aztec-purple-border;
-                border-radius: 28px;
+                @include radio-theme;
                 background: $aztec-purple;
                 opacity: 0.3;
             }
 
             &:focus{
-                background-color: #fff;
-                border: solid 7px #fff;
-                outline: solid 2px $aztec-purple-border;
-                border-radius: 28px;
+                @include radio-theme;
                 opacity: 1;
             }
 
             &:checked{
-                background-color: #fff;
-                border: solid 7px #fff;
-                outline: solid 2px $aztec-purple-border;
-                border-radius: 28px;
+                @include radio-theme;
                 background: $aztec-purple-border;
                 opacity: 1;
             }
