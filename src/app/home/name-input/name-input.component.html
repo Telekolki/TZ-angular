@@ -4,6 +4,9 @@
         type="text" 
         [placeholder]="name" 
         [formControlName]="id"
+        (focus)="onFocus()"
+        (blur)="onBlur()"
+
     >
-    <span>{{name}}</span>
+    <span [@nameLabel]="nameLabelState"> {{name}} </span>
 </label>

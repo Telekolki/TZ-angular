@@ -28,10 +28,19 @@ export class InfoBlockComponent implements OnInit {
   onIsClosedEmitted(isClosed: boolean) {
     this.isOpened = !isClosed;
     this.formGroup.reset();
+    this.resetFormControls();
   }
 
   onSubmit(value: any) {
     this.formSubmitted.emit(value);
+    this.formGroup.reset();
+    this.resetFormControls();
+  }
+
+  resetFormControls() {
+    for (let key in this.formGroup.controls) {
+      this.formGroup.controls[key].setValue('');
+    }
   }
 
 
