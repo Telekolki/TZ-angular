@@ -1,5 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import {
   trigger,
   state,
@@ -7,6 +7,7 @@ import {
   animate,
   transition,
 } from '@angular/animations';
+import { SafeSubscriber } from 'rxjs/internal/Subscriber';
 
 
 @Component({
@@ -29,9 +30,10 @@ import {
     ])
   ]
 })
-export class NameInputComponent implements OnInit {
+export class NameInputComponent implements OnInit, OnDestroy {
 
   nameLabelState = 'normal';
+  controlSubscription!: any;
 
   @Input() id: string | any;
   @Input() name: string | any;
@@ -40,8 +42,7 @@ export class NameInputComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-
-    this.parentForm.controls[this.id].valueChanges.subscribe(value => {
+    this.controlSubscription = this.parentForm.controls[this.id].valueChanges.subscribe(value => {
       if (value == '' && this.nameLabelState === 'floatedUp' && !this.parentForm.controls[this.id].dirty) { 
         this.nameLabelState = 'normal';
       } 
@@ -54,6 +55,10 @@ export class NameInputComponent implements OnInit {
 
   onBlur() {
     this.parentForm.controls[this.id].value ? this.nameLabelState = 'floatedUp' : this.nameLabelState = 'normal';
+  }
+
+  ngOnDestroy(): void {
+    this.controlSubscription.unsubscribe();
   }
 
 }
