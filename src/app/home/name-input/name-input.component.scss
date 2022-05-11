@@ -1,0 +1,52 @@
+@import "/src/styles/styles.scss";
+
+.name-input {
+    position:relative;
+
+    & span{
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translateY(30px);
+        transition-duration: 300ms;
+        font-family: Arial;
+        color: gray;
+        margin-top: -27px;
+        margin-left: 12px;
+        font-size: 0.9rem;
+    }
+
+    &:focus-within > span,
+    input:not(:placeholder-shown) + span{
+        color:$aztec-purple;
+        transform:translateY(7px);
+        font-size: 0.8rem;
+        background-color: white;
+    }
+
+    & input {
+        width: 45vw;
+        height: 4vh;
+        min-width: 466px;
+        min-height: 40px;
+        border-radius: 6px;
+        border: solid 1px #aaa;
+        background-color: #fff;
+        padding-left: 12px;
+
+        &:hover {
+            border: solid 1px $aztec-purple;
+        }
+
+        &:focus {
+            color: $aztec-purple;
+            border: solid 1px $aztec-purple;
+            box-shadow: 0px 0px 3px 0px $aztec-purple;
+            outline: none;
+        }
+
+        &::placeholder{
+            opacity:0;
+        }
+    }
+}

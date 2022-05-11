@@ -8,26 +8,8 @@
             [formGroup]="nameForm"
         >
             <div class="name-content">
-                <label for="firstName">
-                    <input  
-                        class="name-content__name" 
-                        id="firstName" 
-                        type="text" 
-                        placeholder="Имя" 
-                        formControlName="firstName"
-                    >
-                    <span>Имя</span>
-                </label>
-                <label for="lastName">
-                    <input  
-                        class="name-content__name" 
-                        id="secondName" 
-                        type="text" 
-                        placeholder="Фамилия" 
-                        formControlName="lastName"
-                    >
-                    <span>Фамилия</span>
-                </label>
+                <app-name-input id="firstName" name="Имя" [parentForm]="nameForm"></app-name-input>
+                <app-name-input id="lastName" name="Фамилия" [parentForm]="nameForm"></app-name-input>
             </div>
         </app-info-block>
     </div>
